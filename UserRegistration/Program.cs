@@ -1,12 +1,28 @@
 ﻿using System;
 
-namespace UserRegistration
+namespace UserRegistrationWithMSTest
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to User registration using unit testing!");
+            Validation val = new Validation();
+            Console.WriteLine("Enter the first name of the user");
+            String firstName = Console.ReadLine();
+            while (!val.FirstNameValidation(firstName))
+            {
+                Console.WriteLine("Enter a valid First Name with first letter as Capital");
+                firstName = Console.ReadLine();
+            }
+            Console.WriteLine("Enter the last name of the user:");
+            String lastName = Console.ReadLine();
+            while (!val.LastNameValidation(lastName))
+            {
+                Console.WriteLine("Enter a valid Last Name with first letter as Capital and minimum 3 character");
+                lastName = Console.ReadLine();
+            }
+
+
         }
     }
 }
